@@ -1,6 +1,7 @@
 {
   "name": "vscode-hex-multi-converter",
   "displayName": "hex-multi-converter",
+  "publisher": "jesper",
   "description": "Convert hex to ASCII, decimal and binary with multi-select support",
   "version": "0.0.1",
   "engines": {
