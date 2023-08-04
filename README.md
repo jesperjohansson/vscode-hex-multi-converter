@@ -1,4 +1,4 @@
-# vscode-hex-multi-converter
+# Hex Multi-Converter
 
 [GitHub Repository](https://github.com/jesperjohansson/vscode-hex-multi-converter)
 
