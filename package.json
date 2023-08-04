@@ -1,7 +1,7 @@
 {
   "name": "hex-multi-converter",
   "displayName": "hex-multi-converter",
-  "description": "Convert between hex, ASCII and decimal with multi-select support",
+  "description": "Convert hex to ASCII, decimal and binary with multi-select support",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.80.0"
@@ -14,8 +14,28 @@
   "contributes": {
     "commands": [
       {
-        "command": "hex-multi-converter.helloWorld",
-        "title": "Hello World"
+        "command": "hex-multi-converter.hexToDecimal",
+        "title": "Convert Hex To Decimal"
+      },
+      {
+        "command": "hex-multi-converter.commentHexAsDecimal",
+        "title": "Comment Hex as Decimal"
+      },
+      {
+        "command": "hex-multi-converter.hexToASCII",
+        "title": "Convert Hex To ASCII"
+      },
+      {
+        "command": "hex-multi-converter.commentHexAsASCII",
+        "title": "Comment Hex As ASCII"
+      },
+      {
+        "command": "hex-multi-converter.hexToBinary",
+        "title": "Convert Hex To Binary"
+      },
+      {
+        "command": "hex-multi-converter.commentHexAsBinary",
+        "title": "Comment Hex As Binary"
       }
     ]
   },
@@ -28,16 +48,17 @@
     "test": "node ./out/test/runTest.js"
   },
   "devDependencies": {
-    "@types/vscode": "^1.80.0",
     "@types/glob": "^8.1.0",
     "@types/mocha": "^10.0.1",
     "@types/node": "20.2.5",
+    "@types/vscode": "^1.80.0",
     "@typescript-eslint/eslint-plugin": "^5.59.8",
     "@typescript-eslint/parser": "^5.59.8",
+    "@vscode/test-electron": "^2.3.2",
     "eslint": "^8.41.0",
     "glob": "^8.1.0",
     "mocha": "^10.2.0",
-    "typescript": "^5.1.3",
-    "@vscode/test-electron": "^2.3.2"
+    "prettier": "^3.0.1",
+    "typescript": "^5.1.3"
   }
 }
