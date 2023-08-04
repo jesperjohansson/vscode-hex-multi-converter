@@ -1,13 +1,24 @@
 {
-  "name": "hex-multi-converter",
+  "name": "vscode-hex-multi-converter",
   "displayName": "hex-multi-converter",
   "description": "Convert hex to ASCII, decimal and binary with multi-select support",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.80.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jesperjohansson/vscode-hex-multi-converter"
+  },
   "categories": [
     "Other"
+  ],
+  "keywords": [
+    "vscode",
+    "hex",
+    "ascii",
+    "binary",
+    "converter"
   ],
   "activationEvents": [],
   "main": "./out/extension.js",
