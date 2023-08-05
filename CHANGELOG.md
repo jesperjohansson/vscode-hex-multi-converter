@@ -2,6 +2,7 @@
 
 ## [0.1.2]
 
+- Fixed duplicate comment symbols for multiple values on the same line
 - Updated extension icon
 
 ## [0.1.1]

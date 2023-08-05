@@ -15,7 +15,6 @@ export function run(): Promise<void> {
     // Test name arg
     const testName = process.env.args?.split?.(",")?.[0] ?? ["**"];
 
-    // console.log("args", process.argv.slice(2));
     glob(`**/${testName}.test.js`, { cwd: testsRoot }, (err, files) => {
       if (err) {
         return e(err);
