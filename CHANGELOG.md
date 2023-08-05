@@ -1,5 +1,9 @@
 # Change Log
 
+## [0.1.2]
+
+- Updated extension icon
+
 ## [0.1.1]
 
 - Updated extensions display name
