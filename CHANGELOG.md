@@ -5,6 +5,7 @@
 - Added configurable escape and control characters replacements
   - New setting `hex-multi-converter.convertEscapeCharactersToText` (default `true`)
   - New setting `hex-multi-converter.convertControlCharactersToText` (default `true`)
+- Fixed error which caused the extension to stop working when switching editor tab/document
 
 ## [0.1.2]
 
