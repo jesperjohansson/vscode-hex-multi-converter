@@ -1,5 +1,11 @@
 # Change Log
 
+## [0.2.0]
+
+- Added configurable escape and control characters replacements
+  - New setting `hex-multi-converter.convertEscapeCharactersToText` (default `true`)
+  - New setting `hex-multi-converter.convertControlCharactersToText` (default `true`)
+
 ## [0.1.2]
 
 - Fixed duplicate comment symbols for multiple values on the same line
