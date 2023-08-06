@@ -100,33 +100,37 @@ export function replace(
 }
 
 export function activate(context: vscode.ExtensionContext) {
-  const editor = vscode.window.activeTextEditor;
-
   context.subscriptions.push(
     vscode.commands.registerCommand("hex-multi-converter.hexToDecimal", () => {
+      const editor = vscode.window.activeTextEditor;
       replace(editor, hexStringToDecimalString, isHexString);
     }),
     vscode.commands.registerCommand(
       "hex-multi-converter.commentHexAsDecimal",
       () => {
+        const editor = vscode.window.activeTextEditor;
         comment(editor, hexStringToDecimalString, isHexString);
       },
     ),
     vscode.commands.registerCommand("hex-multi-converter.hexToASCII", () => {
+      const editor = vscode.window.activeTextEditor;
       replace(editor, hexStringToASCIIString, isHexString);
     }),
     vscode.commands.registerCommand(
       "hex-multi-converter.commentHexAsASCII",
       () => {
+        const editor = vscode.window.activeTextEditor;
         comment(editor, hexStringToASCIIString, isHexString);
       },
     ),
     vscode.commands.registerCommand("hex-multi-converter.hexToBinary", () => {
+      const editor = vscode.window.activeTextEditor;
       replace(editor, hexStringToBinaryString, isHexString);
     }),
     vscode.commands.registerCommand(
       "hex-multi-converter.commentHexAsBinary",
       () => {
+        const editor = vscode.window.activeTextEditor;
         comment(editor, hexStringToBinaryString, isHexString);
       },
     ),
