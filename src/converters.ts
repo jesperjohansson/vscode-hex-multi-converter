@@ -1,3 +1,5 @@
+import { convertASCIICharacterToText } from "./characters";
+
 export function hexStringToDecimalString(word: string): string | null {
   const decimal = Number.parseInt(word, 16);
 
@@ -15,7 +17,7 @@ export function hexStringToASCIIString(word: string): string | null {
     return null;
   }
 
-  return String.fromCharCode(decimal);
+  return convertASCIICharacterToText(String.fromCharCode(decimal));
 }
 
 export function hexStringToBinaryString(

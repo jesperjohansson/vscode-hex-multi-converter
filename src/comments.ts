@@ -1,14 +1,6 @@
 import * as vscode from "vscode";
-import { commentSymbols, regexes } from "./constants";
+import { commentSymbols } from "./constants";
 import { InsertLineCommentCallback } from "./types";
-
-function escapeComment(comment: string) {
-  const newLineRegExp = new RegExp(regexes.newline);
-
-  // TODO: Options for escape characters
-
-  return comment.replace(newLineRegExp, "\\n");
-}
 
 function findExistingLineCommentRange(
   line: vscode.TextLine,
@@ -36,8 +28,6 @@ export function insertLineComment(
   converted: string,
   callback: InsertLineCommentCallback,
 ) {
-  const escapedComment = escapeComment(converted);
-
   const existingLineCommentRange = findExistingLineCommentRange(
     line,
     lineText,
@@ -45,7 +35,7 @@ export function insertLineComment(
   );
 
   if (existingLineCommentRange) {
-    const comment = ` ${escapedComment}`;
+    const comment = ` ${converted}`;
 
     const updatedLineText = lineText + comment;
     const updatedLineEndIndex =
@@ -55,7 +45,7 @@ export function insertLineComment(
   } else {
     // Add a space to the left of the new comment if needed
     const spaceLeft = lineText[lineEndIndex] === " " ? "" : " ";
-    const comment = `${spaceLeft}${commentSymbols.slashes} ${escapedComment}`;
+    const comment = `${spaceLeft}${commentSymbols.slashes} ${converted}`;
 
     const updatedLineText = lineText + comment;
     const updatedLineEndIndex = lineEndIndex + comment.length;

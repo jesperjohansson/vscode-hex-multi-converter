@@ -25,6 +25,23 @@
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
+    "configuration": [
+      {
+        "title": "Hex Multi-Converter",
+        "properties": {
+          "hex-multi-converter.convertEscapeCharactersToText": {
+            "type": "boolean",
+            "default": true,
+            "description": "Converts escape characters to readable text. For example, instead of rendering a new line you will see \\n."
+          },
+          "hex-multi-converter.convertControlCharactersToText": {
+            "type": "boolean",
+            "default": true,
+            "description": "Converts control characters to readable text. For example, instead of rendering a symbol for 0x1b you will see ESC."
+          }
+        }
+      }
+    ],
     "commands": [
       {
         "command": "hex-multi-converter.hexToDecimal",
