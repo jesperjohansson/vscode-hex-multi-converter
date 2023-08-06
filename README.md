@@ -1,5 +1,7 @@
 # Hex Multi-Converter
 
+![general usage screencast](screenshots/general01.gif)
+
 [GitHub Repository](https://github.com/jesperjohansson/vscode-hex-multi-converter)
 
 ## Features
@@ -16,19 +18,15 @@
 2. Open command palette _(Shift + Command + P (Mac) / Ctrl + Shift + P (Windows/Linux))_
 3. Search "convert" or "comment" and select conversion method
 
-![command-palette](screenshots/command-palette01.png) ![selection-replace-decimals](screenshots/selection01.gif) ![comment-hex-all-variations](screenshots/comment-hex-all01.gif) ![comment-hex-as-ascii](screenshots/comment-hex-as-ascii01.gif) ![multi-select-conversion](screenshots/multi-select01.gif)
+![command palette](screenshots/command-palette02.png)
 
-<!-- ## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
+## Extension Settings
 
 This extension contributes the following settings:
 
-- `myExtension.enable`: Enable/disable this extension.
-- `myExtension.thing`: Set to `blah` to do something.
+- `hex-multi-converter.convertEscapeCharactersToText`: Set to `false` to disable escape characters to text conversion (render newline instead of "\n" for example).
+- `hex-multi-converter.convertControlCharactersToText`: Set to `false` to disable control characters to text conversion (show the ESC symbol instead of "ESC" for example).
 
-## Known Issues
+<!-- ## Known Issues
 
 Calling out known issues can help limit users opening duplicate issues against your extension. -->
