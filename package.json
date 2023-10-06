@@ -66,6 +66,10 @@
       {
         "command": "hex-multi-converter.commentHexAsBinary",
         "title": "Comment Hex As Binary"
+      },
+      {
+        "command": "hex-multi-converter.decimalToHex",
+        "title": "Convert Decimal To Hex"
       }
     ]
   },

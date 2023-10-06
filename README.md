@@ -4,9 +4,12 @@
 
 [GitHub Repository](https://github.com/jesperjohansson/vscode-hex-multi-converter)
 
+[Marketplace Page](https://marketplace.visualstudio.com/items?itemName=Jesper.vscode-hex-multi-converter)
+
 ## Features
 
 - Hex to decimal conversion
+- Decimal to hex conversion
 - Hex to ASCII conversion
 - Hex to binary conversion
 - Multi-select support

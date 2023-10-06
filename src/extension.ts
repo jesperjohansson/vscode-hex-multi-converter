@@ -2,11 +2,12 @@ import * as vscode from "vscode";
 import { ConvertCallback, MatcherCallback } from "./types";
 import { forEachLineIn, forEachWordIn } from "./lib";
 import {
+  decimalStringToHexString,
   hexStringToASCIIString,
   hexStringToBinaryString,
   hexStringToDecimalString,
 } from "./converters";
-import { isHexString } from "./matchers";
+import { isDecimalString, isHexString } from "./matchers";
 import { insertLineComment } from "./comments";
 
 export function comment(
@@ -101,6 +102,7 @@ export function replace(
 
 export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(
+    // From hex conversions
     vscode.commands.registerCommand("hex-multi-converter.hexToDecimal", () => {
       const editor = vscode.window.activeTextEditor;
       replace(editor, hexStringToDecimalString, isHexString);
@@ -134,6 +136,11 @@ export function activate(context: vscode.ExtensionContext) {
         comment(editor, hexStringToBinaryString, isHexString);
       },
     ),
+    // To hex conversions
+    vscode.commands.registerCommand("hex-multi-converter.decimalToHex", () => {
+      const editor = vscode.window.activeTextEditor;
+      replace(editor, decimalStringToHexString, isDecimalString);
+    }),
   );
 }
 

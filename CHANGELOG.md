@@ -1,5 +1,9 @@
 # Change Log
 
+## [0.3.0]
+
+- Added decimal to hex replace conversion
+
 ## [0.2.0]
 
 - Added configurable escape and control characters replacements

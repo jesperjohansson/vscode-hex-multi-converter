@@ -2,8 +2,11 @@ import * as assert from "assert";
 import * as vscode from "vscode";
 
 import { replace, comment } from "../../extension";
-import { hexStringToDecimalString } from "../../converters";
-import { isHexString } from "../../matchers";
+import {
+  decimalStringToHexString,
+  hexStringToDecimalString,
+} from "../../converters";
+import { isDecimalString, isHexString } from "../../matchers";
 
 async function createEditor(content: string) {
   const editor = await vscode.window.showTextDocument(
@@ -67,5 +70,15 @@ suite("extension", () => {
       editor.document.getText(),
       "0x00 0xff 0x10 0x20 0x1d foo // 255 16 32",
     );
+  });
+
+  test("decimalToHex - replace", async () => {
+    const editor = await createEditor("Hello 255");
+
+    editor.selections = [new vscode.Selection(0, 0, 0, 10)];
+
+    await replace(editor, decimalStringToHexString, isDecimalString);
+
+    assert.strictEqual(editor.document.getText(), "Hello 0xff");
   });
 });

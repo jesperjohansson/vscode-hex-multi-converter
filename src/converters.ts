@@ -39,3 +39,27 @@ export function hexStringToBinaryString(
 
   return arr.join("");
 }
+
+export function decimalStringToHexString(
+  word: string,
+  // TODO: Make configurable?
+  options: { prefix: string; upperCase: boolean; minLength: number } = {
+    prefix: "0x",
+    upperCase: false,
+    minLength: 2,
+  },
+): string | null {
+  const decimal = Number.parseInt(word, 10);
+
+  if (Number.isNaN(decimal)) {
+    return null;
+  }
+
+  let hex = decimal.toString(16);
+
+  if (hex.length < options.minLength) {
+    hex = `${"0".repeat(options.minLength - hex.length)}${hex}`;
+  }
+
+  return `${options.prefix}${options.upperCase ? hex.toUpperCase() : hex}`;
+}

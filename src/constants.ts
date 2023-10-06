@@ -1,6 +1,8 @@
 export const regexes = {
-  // https://regex101.com/r/KuAtuw/1
+  /**  https://regex101.com/r/KuAtuw/1 */
   hex: "^(?:0x|#)?[0-9A-Fa-f]+$",
+  /** https://regex101.com/r/KTruwH/1 */
+  decimal: "^[0-9]+$",
   whitespace: "\\s",
   newline: "\\n",
   character: "[a-zA-Z0-9]",
