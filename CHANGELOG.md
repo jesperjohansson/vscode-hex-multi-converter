@@ -3,6 +3,7 @@
 ## [0.3.0]
 
 - Added decimal to hex replace conversion
+- Added binary to hex replace conversion
 
 ## [0.2.0]
 

@@ -20,6 +20,19 @@ export function hexStringToASCIIString(word: string): string | null {
   return convertASCIICharacterToText(String.fromCharCode(decimal));
 }
 
+function formatBinaryString(
+  binaryString: string,
+  options: { numBits: number },
+) {
+  const bits = [...binaryString].slice(0, options.numBits);
+
+  const arr = new Array(options.numBits).fill("0");
+
+  arr.splice(-bits.length, bits.length, ...bits);
+
+  return arr.join("");
+}
+
 export function hexStringToBinaryString(
   word: string,
   // TODO: Make configurable?
@@ -31,13 +44,22 @@ export function hexStringToBinaryString(
     return null;
   }
 
-  const bits = [...decimal.toString(2)].slice(0, options.numBits);
+  const binaryString = decimal.toString(2);
 
-  const arr = new Array(options.numBits).fill("0");
+  return formatBinaryString(binaryString, options);
+}
 
-  arr.splice(-bits.length, bits.length, ...bits);
+function formatHexString(
+  hexString: string,
+  options: { prefix: string; upperCase: boolean; minLength: number },
+) {
+  let hex = hexString;
 
-  return arr.join("");
+  if (hexString.length < options.minLength) {
+    hex = `${"0".repeat(options.minLength - hex.length)}${hex}`;
+  }
+
+  return `${options.prefix}${options.upperCase ? hex.toUpperCase() : hex}`;
 }
 
 export function decimalStringToHexString(
@@ -55,11 +77,33 @@ export function decimalStringToHexString(
     return null;
   }
 
-  let hex = decimal.toString(16);
+  const hex = decimal.toString(16);
 
-  if (hex.length < options.minLength) {
-    hex = `${"0".repeat(options.minLength - hex.length)}${hex}`;
+  return formatHexString(hex, options);
+}
+
+export function binaryStringToHexString(
+  word: string,
+  // TODO: Make configurable?
+  options: {
+    prefix: string;
+    upperCase: boolean;
+    minLength: number;
+    numBits?: number;
+  } = {
+    prefix: "0x",
+    upperCase: false,
+    minLength: 2,
+    numBits: undefined,
+  },
+) {
+  const decimal = Number.parseInt(word, 2);
+
+  if (Number.isNaN(decimal)) {
+    return null;
   }
 
-  return `${options.prefix}${options.upperCase ? hex.toUpperCase() : hex}`;
+  const hex = decimal.toString(16);
+
+  return formatHexString(hex, options);
 }

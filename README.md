@@ -8,12 +8,23 @@
 
 ## Features
 
-- Hex to decimal conversion
-- Decimal to hex conversion
-- Hex to ASCII conversion
-- Hex to binary conversion
 - Multi-select support
 - Replace selected text or insert conversion as comments
+- Hex to decimal conversion
+  - [x] Replace
+  - [x] Comment
+- Hex to ASCII conversion
+  - [x] Replace
+  - [x] Comment
+- Hex to binary conversion
+  - [x] Replace
+  - [x] Comment
+- Decimal to hex conversion
+  - [x] Replace
+  - [ ] Comment
+- Binary to hex conversion
+  - [x] Replace
+  - [ ] Comment
 
 ## Usage
 

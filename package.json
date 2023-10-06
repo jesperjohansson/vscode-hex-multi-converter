@@ -70,6 +70,10 @@
       {
         "command": "hex-multi-converter.decimalToHex",
         "title": "Convert Decimal To Hex"
+      },
+      {
+        "command": "hex-multi-converter.binaryToHex",
+        "title": "Convert Binary To Hex"
       }
     ]
   },

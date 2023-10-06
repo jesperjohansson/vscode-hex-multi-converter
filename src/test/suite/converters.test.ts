@@ -1,6 +1,7 @@
 import * as assert from "assert";
 
 import {
+  binaryStringToHexString,
   decimalStringToHexString,
   hexStringToASCIIString,
   hexStringToBinaryString,
@@ -37,5 +38,13 @@ suite("converters", () => {
     assert.deepStrictEqual(decimalStringToHexString("0"), "0x00");
     assert.deepStrictEqual(decimalStringToHexString("05"), "0x05");
     assert.deepStrictEqual(decimalStringToHexString("512"), "0x200");
+  });
+
+  test("binaryStringToHexString", () => {
+    assert.deepStrictEqual(binaryStringToHexString("00000110"), "0x06");
+    assert.deepStrictEqual(binaryStringToHexString("11111111"), "0xff");
+    assert.deepStrictEqual(binaryStringToHexString("01"), "0x01");
+    assert.deepStrictEqual(binaryStringToHexString("00000000"), "0x00");
+    assert.deepStrictEqual(binaryStringToHexString("10000000"), "0x80");
   });
 });
