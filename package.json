@@ -74,6 +74,10 @@
       {
         "command": "hex-multi-converter.binaryToHex",
         "title": "Convert Binary To Hex"
+      },
+      {
+        "command": "hex-multi-converter.asciiToHex",
+        "title": "Convert ASCII To Hex"
       }
     ]
   },

@@ -1,6 +1,11 @@
 import * as assert from "assert";
 
-import { isHexString, isDecimalString, isBinaryString } from "../../matchers";
+import {
+  isHexString,
+  isDecimalString,
+  isBinaryString,
+  isASCIIString,
+} from "../../matchers";
 
 suite("matchers", () => {
   test("isHexString", () => {
@@ -39,5 +44,17 @@ suite("matchers", () => {
     assert.strictEqual(isBinaryString("0x00"), false);
     assert.strictEqual(isBinaryString("l"), false);
     assert.strictEqual(isBinaryString(""), false);
+  });
+
+  test("isASCIIString", () => {
+    assert.strictEqual(isASCIIString("abc"), true);
+    assert.strictEqual(isASCIIString("001"), true);
+    assert.strictEqual(isASCIIString("0$.1"), true);
+    assert.strictEqual(isASCIIString("00.1"), true);
+    assert.strictEqual(isASCIIString("\n"), true);
+    assert.strictEqual(isASCIIString("~"), true);
+    assert.strictEqual(isASCIIString("Ö"), false);
+    assert.strictEqual(isASCIIString("åbc"), false);
+    assert.strictEqual(isASCIIString("😃"), false);
   });
 });

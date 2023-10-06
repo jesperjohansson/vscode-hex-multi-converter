@@ -107,3 +107,35 @@ export function binaryStringToHexString(
 
   return formatHexString(hex, options);
 }
+
+export function asciiStringToHexString(
+  word: string,
+  // TODO: Make configurable?
+  options: {
+    prefix: string;
+    upperCase: boolean;
+    minLength: number;
+    numBits?: number;
+  } = {
+    prefix: "0x",
+    upperCase: false,
+    minLength: 2,
+    numBits: undefined,
+  },
+) {
+  const chars = [...word];
+
+  const out: string[] = [];
+
+  for (const char of chars) {
+    const charCode = char.charCodeAt(0);
+
+    if (charCode >= 0 && charCode < 127) {
+      out.push(formatHexString(charCode.toString(16), options));
+    } else {
+      return null;
+    }
+  }
+
+  return out.join(" ");
+}

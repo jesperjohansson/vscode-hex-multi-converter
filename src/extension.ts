@@ -2,13 +2,19 @@ import * as vscode from "vscode";
 import { ConvertCallback, MatcherCallback } from "./types";
 import { forEachLineIn, forEachWordIn } from "./lib";
 import {
+  asciiStringToHexString,
   binaryStringToHexString,
   decimalStringToHexString,
   hexStringToASCIIString,
   hexStringToBinaryString,
   hexStringToDecimalString,
 } from "./converters";
-import { isBinaryString, isDecimalString, isHexString } from "./matchers";
+import {
+  isASCIIString,
+  isBinaryString,
+  isDecimalString,
+  isHexString,
+} from "./matchers";
 import { insertLineComment } from "./comments";
 
 export function comment(
@@ -145,6 +151,10 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.commands.registerCommand("hex-multi-converter.binaryToHex", () => {
       const editor = vscode.window.activeTextEditor;
       replace(editor, binaryStringToHexString, isBinaryString);
+    }),
+    vscode.commands.registerCommand("hex-multi-converter.asciiToHex", () => {
+      const editor = vscode.window.activeTextEditor;
+      replace(editor, asciiStringToHexString, isASCIIString);
     }),
   );
 }

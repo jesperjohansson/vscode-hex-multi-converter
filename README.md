@@ -22,6 +22,9 @@
 - Decimal to hex conversion
   - [x] Replace
   - [ ] Comment
+- ASCII to hex conversion
+  - [x] Replace
+  - [ ] Comment
 - Binary to hex conversion
   - [x] Replace
   - [ ] Comment
