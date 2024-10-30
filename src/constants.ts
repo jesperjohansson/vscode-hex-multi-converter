@@ -1,6 +1,8 @@
 export const regexes = {
-  /**  https://regex101.com/r/KuAtuw/1 */
+  /** https://regex101.com/r/b9m5jF/1 */
   hex: "^(?:0x|#)?[0-9A-Fa-f]+$",
+  /** https://regex101.com/r/b9m5jF/1 */
+  hexExtended: "^(?:0x|#)?[0-9A-Fa-f]+[Uu]?$",
   /** https://regex101.com/r/KTruwH/1 */
   decimal: "^[0-9]+$",
   binary: "^[0-1]+$",

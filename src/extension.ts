@@ -17,6 +17,12 @@ import {
 } from "./matchers";
 import { insertLineComment } from "./comments";
 
+function getEnableExtendedMatcher(): boolean {
+  const config = vscode.workspace.getConfiguration("hex-multi-converter");
+  const enableExtendedMatcher = config.get("extendedMatcher", false);
+  return enableExtendedMatcher;
+}
+
 export function comment(
   editor: vscode.TextEditor | undefined,
   convert: ConvertCallback,
@@ -32,6 +38,8 @@ export function comment(
     return;
   }
 
+  const enableExtendedMatcher = getEnableExtendedMatcher();
+
   return editor.edit((builder) => {
     for (const selection of editor.selections) {
       forEachLineIn(editor, selection, (line) => {
@@ -40,7 +48,7 @@ export function comment(
         let lineEndIndex: number = line.range.end.character;
 
         forEachWordIn(editor, selection, line, (word) => {
-          if (matcher(word)) {
+          if (matcher(word, enableExtendedMatcher)) {
             const converted = convert(word);
             if (typeof converted === "string") {
               insertLineComment(
@@ -83,11 +91,13 @@ export function replace(
     return;
   }
 
+  const enableExtendedMatcher = getEnableExtendedMatcher();
+
   return editor.edit((builder) => {
     for (const selection of editor.selections) {
       forEachLineIn(editor, selection, (line) => {
         forEachWordIn(editor, selection, line, (word, wordIndex) => {
-          if (matcher(word)) {
+          if (matcher(word, enableExtendedMatcher)) {
             const converted = convert(word);
             if (typeof converted === "string") {
               builder.replace(

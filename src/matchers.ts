@@ -1,9 +1,11 @@
 import { regexes } from "./constants";
 
 const hexRegExp = new RegExp(regexes.hex);
+const hexExtendedRegExp = new RegExp(regexes.hexExtended);
 
-export function isHexString(value: string): boolean {
-  return hexRegExp.test(value);
+export function isHexString(value: string, extended: boolean): boolean {
+  const regExp = extended ? hexExtendedRegExp : hexRegExp;
+  return regExp.test(value);
 }
 
 const decimalRegExp = new RegExp(regexes.decimal);

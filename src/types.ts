@@ -1,6 +1,6 @@
 export type ConvertCallback = (word: string) => string | null;
 
-export type MatcherCallback = (word: string) => boolean;
+export type MatcherCallback = (word: string, extended: boolean) => boolean;
 
 export type InsertLineCommentCallback = (
   comment: string,

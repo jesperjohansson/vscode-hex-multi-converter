@@ -9,16 +9,33 @@ import {
 
 suite("matchers", () => {
   test("isHexString", () => {
-    assert.strictEqual(isHexString("0xff"), true);
-    assert.strictEqual(isHexString("0xFF"), true);
-    assert.strictEqual(isHexString("0x00"), true);
-    assert.strictEqual(isHexString("#CCC"), true);
-    assert.strictEqual(isHexString("#ffffffff"), true);
-    assert.strictEqual(isHexString("FFF"), true);
-    assert.strictEqual(isHexString("F"), true);
-    assert.strictEqual(isHexString("5"), true);
-    assert.strictEqual(isHexString(""), false);
-    assert.strictEqual(isHexString("l"), false);
+    assert.strictEqual(isHexString("0xff", false), true);
+    assert.strictEqual(isHexString("0xFF", false), true);
+    assert.strictEqual(isHexString("0x00", false), true);
+    assert.strictEqual(isHexString("#CCC", false), true);
+    assert.strictEqual(isHexString("#ffffffff", false), true);
+    assert.strictEqual(isHexString("FFF", false), true);
+    assert.strictEqual(isHexString("F", false), true);
+    assert.strictEqual(isHexString("5", false), true);
+    assert.strictEqual(isHexString("", false), false);
+    assert.strictEqual(isHexString("l", false), false);
+    assert.strictEqual(isHexString("0x12345", false), true);
+    assert.strictEqual(isHexString("0x12345U", false), false);
+  });
+
+  test("isHexString - extended", () => {
+    assert.strictEqual(isHexString("0xff", true), true);
+    assert.strictEqual(isHexString("0xFF", true), true);
+    assert.strictEqual(isHexString("0x00", true), true);
+    assert.strictEqual(isHexString("#CCC", true), true);
+    assert.strictEqual(isHexString("#ffffffff", true), true);
+    assert.strictEqual(isHexString("FFF", true), true);
+    assert.strictEqual(isHexString("F", true), true);
+    assert.strictEqual(isHexString("5", true), true);
+    assert.strictEqual(isHexString("", true), false);
+    assert.strictEqual(isHexString("l", true), false);
+    assert.strictEqual(isHexString("0x12345", true), true);
+    assert.strictEqual(isHexString("0x12345U", true), true);
   });
 
   test("isDecimalString", () => {

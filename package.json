@@ -38,6 +38,11 @@
             "type": "boolean",
             "default": true,
             "description": "Converts control characters to readable text. For example, instead of rendering a symbol for 0x1b you will see ESC."
+          },
+          "hex-multi-converter.extendedMatcher": {
+            "type": "boolean",
+            "default": false,
+            "description": "Enables extended syntax for hexadecimal numbers. For example, when enabled 0x12345U and 0x12345u will be matched as hexadecimal numbers."
           }
         }
       }

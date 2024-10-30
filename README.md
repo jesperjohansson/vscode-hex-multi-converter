@@ -41,8 +41,9 @@
 
 This extension contributes the following settings:
 
-- `hex-multi-converter.convertEscapeCharactersToText`: Set to `false` to disable escape characters to text conversion (render newline instead of "\n" for example).
-- `hex-multi-converter.convertControlCharactersToText`: Set to `false` to disable control characters to text conversion (show the ESC symbol instead of "ESC" for example).
+- `hex-multi-converter.convertEscapeCharactersToText`: (default `true`) Set to `false` to disable escape characters to text conversion (render newline instead of "\n" for example).
+- `hex-multi-converter.convertControlCharactersToText`: (default `true`) Set to `false` to disable control characters to text conversion (show the ESC symbol instead of "ESC" for example).
+- `hex-multi-converter.extendedMatcher`: (default `false`) Set to `true` to enable extended syntax for hexadecimal numbers. For example, when enabled 0x12345U and 0x12345u will be matched as hexadecimal numbers.
 
 <!-- ## Known Issues
 
