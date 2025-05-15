@@ -4,7 +4,7 @@
   "publisher": "jesper",
   "icon": "icon.png",
   "description": "Convert hex to ASCII, decimal and binary with multi-select support",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "engines": {
     "vscode": "^1.80.0"
   },
