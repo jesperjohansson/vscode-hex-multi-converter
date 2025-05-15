@@ -21,7 +21,6 @@ export const characters: {
 } = {
   escapes: ["\\n", "\\r", "\\t", "\\f", "\\v"],
   controls: {
-    /* eslint-disable @typescript-eslint/naming-convention */
     0x00: "NUL",
     0x01: "SOH",
     0x02: "STX",
@@ -55,6 +54,5 @@ export const characters: {
     0x1d: "GS",
     0x1e: "RS",
     0x1f: "US",
-    /* eslint-enable @typescript-eslint/naming-convention */
   },
 };
